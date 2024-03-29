@@ -6,6 +6,7 @@ To reproduce:
 **IT MUST USE HTTPS SO IT CANT BE LOCALHOST**
 - `npm i`
 - `npm run build` - cannot run dev, i think becayuse 404 pages dont appear to be returned properly in dev
+- `node ./dist/server/entry.mjs`
 - `/` works fine
 - `/anythiny-else` (404 page) causes the SSL bug:
 

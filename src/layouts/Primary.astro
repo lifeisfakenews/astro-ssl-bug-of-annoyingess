@@ -1,0 +1,73 @@
+---
+
+
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- SEO and that -->
+        <meta name="author" content="Vote Manager">
+        <meta name="title" content={title + " - Vote Manager"}>
+        <meta name="description" content="bla">
+        <meta name="keywords" content="Vote Manager">
+        <meta name="theme-color" content="#06c1c1">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="language" content="English">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:locale" content="en_UK">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content={Astro.request.url}>
+        <meta property="og:site_name" content="Vote Manager">
+        <meta property="og:title" content={title + " - Vote Manager"}>
+        <meta property="og:description" content="bla">
+        <meta property="og:image" content={"https://resources.votemanager.xyz/assets/banner.png"}>
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content={"summary_large_image"}>
+        <meta property="twitter:url" content={Astro.request.url}>
+        <meta property="twitter:title" content={title + " - Vote Manager"}>
+        <meta property="twitter:description" content="bla">
+        <meta property="twitter:image" content={"https://resources.votemanager.xyz/assets/banner.png"}>
+
+        <title>{title} - Vote Manager</title>
+
+        <link rel="icon" href={"https://resources.votemanager.xyz/assets/favicon.png"}>
+
+        <link rel="stylesheet" href="https://resources.votemanager.xyz/styles/global.css">
+    </head>
+    <body>
+        <main>
+            <slot />
+        </main>
+        <slot name="modals"/>
+    </body>
+</html>
+
+<style>
+    main {
+        --vm-container-max-width: 150rem;
+        margin-inline: auto;
+        padding: max(4rem, 5vw);
+        max-width: var(--vm-container-max-width);
+        width: 100%;
+    }
+    main > :first-child {
+        margin-top: 0;
+    }
+    main > :last-child {
+        margin-bottom: 0;
+    }
+</style>
